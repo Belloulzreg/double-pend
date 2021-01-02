@@ -66,7 +66,7 @@ function draw(){
   noFill();
   
   for(let i= 0; i < trail1.length; i++){
-    stroke(map(i, 0, trail2.length, 0, 255), map(i, 0, trail2.length, 0, 255), map(i, 0, trail2.length, 0, 255));
+    stroke(0, 255, map(i, 0, trail2.length, 0, 255));
     curveVertex(trail1[i].x, trail1[i].y);
 
   }
@@ -75,7 +75,7 @@ function draw(){
   noFill();
   
   for(let i= 0; i < trail2.length; i++){
-    stroke(255, map(i, 0, trail2.length, 0, 255), map(i, 0, trail2.length, 0, 255));
+    stroke(255, 0, map(i, 0, trail2.length, 0, 255));
     curveVertex(trail2[i].x, trail2[i].y);
 
   }
