@@ -33,7 +33,7 @@ let r1,
 
 
 function setup(){
-createCanvas(windowWidth, windowHeight/2)
+createCanvas(windowWidth, 600)
 createP(' L1')
 r1Slider = createSlider(1, 300, 100)
 createP(' L2')
