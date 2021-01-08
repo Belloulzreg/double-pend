@@ -1,4 +1,4 @@
-const g = 0.00981;
+const g = 0.000981;
 let r1,
     r1Slider,
     r2Slider,
