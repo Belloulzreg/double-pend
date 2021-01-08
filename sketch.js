@@ -1,4 +1,4 @@
-const g = 0.098;
+const g = 0.00981;
 let r1,
     r1Slider,
     r2Slider,
@@ -33,7 +33,7 @@ let r1,
 
 
 function setup(){
-createCanvas(1000, 600)
+createCanvas(windowWidth, windowHeight/2)
 createP(' L1')
 r1Slider = createSlider(1, 300, 100)
 createP(' L2')
@@ -66,7 +66,7 @@ function draw(){
   background(53);
   stroke(0);
   strokeWeight(2);
-  translate(300, 100);
+  translate(width/2, 10);
   x1 = r1 * sin(a1);
   y1 = r1 * cos(a1);
   x2 = x1 + r2*sin(a2);
