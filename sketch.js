@@ -1,14 +1,18 @@
-const g = 0.05;
-let r1 = 200,
-    r2 = 200,
+const g = 0.098;
+let r1,
+    r1Slider,
+    r2Slider,
+    m1Slider,
+    m2Slider,
+    r2,
     x1,
     y1,
     x2,
     y2,
-    m1 = 40,
-    m2 = 40,
+    m1,
+    m2,
     a1 = -3.14/2,
-    a2 = 3.14/2,
+    a2 = 3.14,
     a1_v = 0,
     a2_v = 0,
     // a1_a = 0,
@@ -29,9 +33,24 @@ let r1 = 200,
 
 
 function setup(){
-createCanvas(windowWidth, windowHeight)
+createCanvas(1000, 600)
+createP(' L1')
+r1Slider = createSlider(1, 300, 100)
+createP(' L2')
+r2Slider = createSlider(1, 300, 100)
+createP(' First mass')
+m1Slider = createSlider(1, 100, 20)
+createP(' Second mass')
+m2Slider = createSlider(1, 100, 20)
+
 }
 function draw(){
+  r1 = r1Slider.value();
+  r2 = r2Slider.value();
+  m1 = m1Slider.value();
+  m2 = m2Slider.value();
+  // a1 = a1Slider.value();
+  // a2 = a2Slider.value();
   num1 = -g * (2* m1 + m2 )* sin(a1);
   num2 = - m2 * g * sin(a1-2*a2);
   num3 = -2 * sin(a1-a2)*m2;
@@ -47,7 +66,7 @@ function draw(){
   background(53);
   stroke(0);
   strokeWeight(2);
-  translate(300, 300);
+  translate(300, 100);
   x1 = r1 * sin(a1);
   y1 = r1 * cos(a1);
   x2 = x1 + r2*sin(a2);
@@ -56,17 +75,18 @@ function draw(){
   let v2 = createVector(x2, y2);
   trail1.push(v1);
   trail2.push(v2);
-    if(trail1.length > 200){
+    if(trail1.length > 100){
       trail1.splice(0, 1)
     }
-    if(trail2.length > 200){
+    if(trail2.length > 100){
       trail2.splice(0, 1)
     }
   beginShape();
-  noFill();
+    noFill();
   
   for(let i= 0; i < trail1.length; i++){
-    stroke(255, 0, map(i, 0, trail1.length, 0, 255))
+    strokeWeight(3)
+    stroke(0, 0, map(i, 0, trail2.length, 0, 255))
     curveVertex(trail1[i].x, trail1[i].y);
 
   }
@@ -75,7 +95,8 @@ function draw(){
   noFill();
   
   for(let i= 0; i < trail2.length; i++){
-    stroke(0, 255, map(i, 0, trail2.length, 0, 255))
+    strokeWeight(3)
+    stroke(255, 0, map(i, 0, trail1.length, 0, 255))
     curveVertex(trail2[i].x, trail2[i].y);
 
   }
@@ -93,5 +114,5 @@ function draw(){
   a1   += a1_v;
   a2   += a2_v;
   
-  
+
 }
