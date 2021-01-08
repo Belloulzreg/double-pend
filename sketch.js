@@ -63,7 +63,7 @@ function draw(){
   num40 = a2_v*a2_v*r2*m2*cos(a1-a2);
   den2= r2*(2*m1+m2-m2*cos(2*a1-2*a2));
   let a2_a = num10*(num20+num30+num40)/den2;
-  background("pink");
+  background(53);
   stroke(0);
   strokeWeight(2);
   translate(300, 100);
