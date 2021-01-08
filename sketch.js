@@ -1,4 +1,4 @@
-const g = 0.001;
+const g = 0.01;
 let r1,
     r1Slider,
     r2Slider,
@@ -75,10 +75,10 @@ function draw(){
   let v2 = createVector(x2, y2);
   trail1.push(v1);
   trail2.push(v2);
-    if(trail1.length > 100){
+    if(trail1.length > 200){
       trail1.splice(0, 1)
     }
-    if(trail2.length > 100){
+    if(trail2.length > 200){
       trail2.splice(0, 1)
     }
   beginShape();
